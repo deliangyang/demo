@@ -17,4 +17,13 @@ Route::get('/', function () {
 
 Route::group(['namespace' => 'Admin', ], function() {
     Route::resource('admin/admin', 'AdminController');
+    // 商品
+    Route::resource('admin/products', 'ProductsController');
+
 });
+
+// 微信路由
+Route::any('/wechat/serve', 'WeChatController@serve');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
