@@ -177,7 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+       // EasyWeChat\Foundation\ServiceProviders\ServerServiceProvider::class,
 
     ],
 
@@ -228,7 +229,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-       // 'EasyWeChat' => Overtrue\LaravelWeChat\Facade::class,
+        //'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
+        //'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
 
     ],
 
