@@ -15,9 +15,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $article = new Article();
 
-        $article->title = 'xxxxx';
+        return response()->json(Article::paginate());
+       /* $article->title = 'xxxxx';
         $article->author_id = 1;
         $article->author = 'xxxx';
         $article->content = 'xxxx';
@@ -25,7 +25,7 @@ class AdminController extends Controller
         $article->tags = 'xxxx';
         $article->type = 1;
         $article->status = 1;
-        $article->save();
+        $article->save();*/
     }
 
     /**
