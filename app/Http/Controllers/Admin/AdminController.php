@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\ArticleShow;
+use App\Jobs\EchoHello;
 use App\Model\Article;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,6 +19,17 @@ class AdminController extends Controller
     public function index()
     {
 
+        $res = EchoHello::dispatch(Article::find(1));
+
+        // 事件
+
+        event(new ArticleShow(Article::find(1)));
+
+        // 延迟一分钟执行
+        EchoHello::dispatch(Article::find(1))->delay(Carbon::now()->addMinute(1));
+
+        $uid = \Auth::user()->id;
+        var_dump($uid);
         return response()->json(Article::paginate());
        /* $article->title = 'xxxxx';
         $article->author_id = 1;
