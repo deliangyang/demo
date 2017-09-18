@@ -19,17 +19,17 @@ class AdminController extends Controller
     public function index()
     {
 
-        $res = EchoHello::dispatch(Article::find(1));
+        //$res = EchoHello::dispatch(Article::find(1));
 
         // 事件
 
-        event(new ArticleShow(Article::find(1)));
+        var_dump(event(new ArticleShow(Article::find(1))));
 
         // 延迟一分钟执行
-        EchoHello::dispatch(Article::find(1))->delay(Carbon::now()->addMinute(1));
+        //EchoHello::dispatch(Article::find(1))->delay(Carbon::now()->addMinute(1));
 
-        $uid = \Auth::user()->id;
-        var_dump($uid);
+        //$uid = \Auth::user()->id;
+       // var_dump($uid);
         return response()->json(Article::paginate());
        /* $article->title = 'xxxxx';
         $article->author_id = 1;

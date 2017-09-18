@@ -15,7 +15,7 @@ class ArticleShow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    protected $article;
+    public $article;
 
     /**
      * Create a new event instance.

@@ -11,9 +11,9 @@ class ArticleShowNotify implements ShouldQueue
 
     use InteractsWithQueue;
 
-    protected $connection = 'redis';
+   /* protected $connection = 'redis';
 
-    public $queue = 'listeners';
+    public $queue = 'listeners';*/
 
     /**
      * Create the event listener.
@@ -33,8 +33,7 @@ class ArticleShowNotify implements ShouldQueue
      */
     public function handle(ArticleShow $event)
     {
-        $this->release();
-        var_dump(111111111);
-        var_dump($event);
+        var_dump($event->article);
+        return 1;
     }
 }
