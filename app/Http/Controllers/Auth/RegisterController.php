@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Model\Ntrust\Role;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -62,7 +63,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
+        // 添加用户角色
+       // $user_role = Role::where(['name' => 'admin'])->first();
 
         return User::create([
             'name' => $data['name'],

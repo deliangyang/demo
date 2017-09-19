@@ -19,6 +19,7 @@ Route::group(['namespace' => 'Admin', ], function() {
     Route::resource('admin/admin', 'AdminController');
     // 商品
     Route::resource('admin/products', 'ProductsController');
+    Route::resource('admin/advertisement', 'AdvertisementController');
 
 });
 
@@ -27,3 +28,5 @@ Route::any('/wechat/serve', 'WeChatController@serve');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/wx/api/orders', 'Home\\OrdersController');

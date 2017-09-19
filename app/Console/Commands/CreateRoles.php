@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Model\Ntrust\Role;
 use Illuminate\Console\Command;
-use Klaravel\Ntrust\Middleware\NtrustRole;
 
 class CreateRoles extends Command
 {
@@ -38,13 +38,13 @@ class CreateRoles extends Command
      */
     public function handle()
     {
-        $user = new NtrustRole();
+        $user = new Role();
         $user->name = 'user';
         $user->display_name = 'front user';
         $user->description = 'front user role';
         $user->save();
 
-        $admin = new NtrustRole();
+        $admin = new Role();
         $admin->name = 'admin';
         $admin->display_name = 'admin user';
         $admin->description = 'admin user role';

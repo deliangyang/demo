@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Events\ArticleShow;
-use App\Jobs\EchoHello;
-use App\Model\Article;
-use App\Model\Ntrust\Role;
-use Carbon\Carbon;
+use App\Model\Advertisement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AdminController extends Controller
+class AdvertisementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,33 +15,14 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $where = [];
+        $sort = [];
+        $advertise = Advertisement::where($where)->orderBy($sort)->paginate();
 
-        $user = \Auth::user();
-        $role = Role::where(['name' => 'admin', ])->first();
-        $user->attachRole($role);
-
-        exit;
-        //$res = EchoHello::dispatch(Article::find(1));
-
-        // 事件
-
-        var_dump(event(new ArticleShow(Article::find(1))));
-
-        // 延迟一分钟执行
-        //EchoHello::dispatch(Article::find(1))->delay(Carbon::now()->addMinute(1));
-
-        //$uid = \Auth::user()->id;
-       // var_dump($uid);
-        return response()->json(Article::paginate());
-       /* $article->title = 'xxxxx';
-        $article->author_id = 1;
-        $article->author = 'xxxx';
-        $article->content = 'xxxx';
-        $article->summary = 'xxxx';
-        $article->tags = 'xxxx';
-        $article->type = 1;
-        $article->status = 1;
-        $article->save();*/
+        return view('admin.x', [
+            'result' => $advertise,
+            'page' => $advertise->render(),
+        ]);
     }
 
     /**
@@ -56,6 +33,7 @@ class AdminController extends Controller
     public function create()
     {
         //
+        return view();
     }
 
     /**
@@ -67,6 +45,10 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+        $advertise = $request->post();
+
+        $advertise_id = Advertisement::insertGetId($advertise);
+        return response()->json($advertise_id);
     }
 
     /**
