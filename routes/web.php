@@ -20,7 +20,7 @@ Route::group(['namespace' => 'Admin', ], function() {
     // 商品
     Route::resource('admin/products', 'ProductsController');
     Route::resource('admin/advertisement', 'AdvertisementController');
-
+    Route::resource('admin/orders', 'OrdersController');
 });
 
 // 微信路由
@@ -30,3 +30,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/wx/api/orders', 'Home\\OrdersController');
+Route::resource('/wx/api/user', 'Home\\UsersController');

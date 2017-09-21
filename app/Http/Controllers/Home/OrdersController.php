@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Model\Order;
 use App\Model\Products;
+use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,13 +24,18 @@ class OrdersController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * 
+     * @param Application $app
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function create()
+    public function create(Application $app)
     {
-        //
+        $payment = $app->payment;
+
+        $payment->configForJSSDKPayment();
+
+        return response()->json();
     }
 
     /**

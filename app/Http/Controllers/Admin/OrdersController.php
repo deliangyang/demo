@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Admin;
 
-use App\Model\Products;
+use App\Model\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProductsController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,12 @@ class ProductsController extends Controller
     {
         $where = [];
         $sort = [];
-        $products = Products::where($where)->orderBy($sort)->paginate();
-        return response()->json($products);
+        $orders = Order::where($where)->orderBy($sort)->paginate();
+
+        return view('', [
+            'result' => $orders,
+            'page' => $orders->render(),
+        ]);
     }
 
     /**
