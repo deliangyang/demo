@@ -16,7 +16,14 @@ class ProductsController extends Controller
      */
     public function index()
     {
+        $where = [];
+        $sort = [];
+        $products = Products::where($where)->orderBy($sort)->paginate();
 
+        return view('admin.products.index', [
+            'result' => $products,
+            'page' => $products->render(),
+        ]);
     }
 
     /**
@@ -26,7 +33,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view();
+        return view('admin.products.store');
     }
 
     /**
@@ -56,7 +63,11 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $products = Products::find($id);
+
+        return view('admin.products.store', [
+            'products' => $products,
+        ]);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $info = \Auth::user();
+        return response()->json($info);
     }
 
     /**
