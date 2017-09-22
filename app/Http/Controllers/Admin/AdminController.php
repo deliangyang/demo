@@ -20,19 +20,14 @@ class AdminController extends Controller
     public function index()
     {
         $name = '学院君';
-        $flag = \Mail::send('emails.test',['name'=>$name],function($message){
+        $flag = \Mail::send('auth.passwords.email', ['name' => $name], function ($message) {
             $to = '623601391@qq.com';
-            $message ->to($to)->subject('测试邮件');
+            $message->to($to)->subject('测试邮件');
         });
-        if($flag){
-            echo '发送邮件成功，请查收！';
-        }else{
-            echo '发送邮件失败，请重试！';
-        }
 
         exit;
         $user = \Auth::user();
-        $role = Role::where(['name' => 'admin', ])->first();
+        $role = Role::where(['name' => 'admin',])->first();
         $user->attachRole($role);
 
         exit;
@@ -46,17 +41,17 @@ class AdminController extends Controller
         //EchoHello::dispatch(Article::find(1))->delay(Carbon::now()->addMinute(1));
 
         //$uid = \Auth::user()->id;
-       // var_dump($uid);
+        // var_dump($uid);
         return response()->json(Article::paginate());
-       /* $article->title = 'xxxxx';
-        $article->author_id = 1;
-        $article->author = 'xxxx';
-        $article->content = 'xxxx';
-        $article->summary = 'xxxx';
-        $article->tags = 'xxxx';
-        $article->type = 1;
-        $article->status = 1;
-        $article->save();*/
+        /* $article->title = 'xxxxx';
+         $article->author_id = 1;
+         $article->author = 'xxxx';
+         $article->content = 'xxxx';
+         $article->summary = 'xxxx';
+         $article->tags = 'xxxx';
+         $article->type = 1;
+         $article->status = 1;
+         $article->save();*/
     }
 
     /**
@@ -67,23 +62,25 @@ class AdminController extends Controller
     public function create()
     {
         //
+        return view('admin.admin.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -94,7 +91,7 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -105,8 +102,8 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -117,7 +114,7 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
