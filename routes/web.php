@@ -21,6 +21,7 @@ Route::group(['namespace' => 'Admin', ], function() {
     Route::resource('admin/products', 'ProductsController');
     Route::resource('admin/advertisement', 'AdvertisementController');
     Route::resource('admin/orders', 'OrdersController');
+    Route::resource('admin/auth', 'AuthController');
 });
 
 // 微信路由
