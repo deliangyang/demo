@@ -47,6 +47,19 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
+                <div class="col-sm-7">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="验证码">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <img height="34px" src="{{ captcha_src() }}" alt="">
+                </div>
+            </div>
+
+
+            <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>

@@ -181,6 +181,8 @@ return [
         Klaravel\Ntrust\NtrustServiceProvider::class,
        // EasyWeChat\Foundation\ServiceProviders\ServerServiceProvider::class,
 
+        Mews\Captcha\CaptchaServiceProvider::class,
+
     ],
 
     /*
@@ -234,6 +236,7 @@ return [
 
         //'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
         //'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
     ],
 
