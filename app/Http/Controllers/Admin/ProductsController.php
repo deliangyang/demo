@@ -44,15 +44,20 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $product = $request->post();
+        $postData = $request->post();
 
-        $product['created_at'] = $product['updated_at'] = PHANTOM_TIMESTAMP;
+        $product = new Products();
+        $product->product_name = $postData['product_name'];
+        $product->product_desc = $postData['product_desc'];
+        $product->amount = $postData['amount'];
+        $product->count = $postData['count'];
+        $product->left = $postData['left'];
+        $product->cover_image = $postData['cover_image'];
+        $product->created_at = PHANTOM_TIMESTAMP;
+        $product->updated_at = PHANTOM_TIMESTAMP;
+        $product->save();
 
-        $id = Products::insertGetId($product);
-
-        return response()->json([
-            'id' =>$id,
-        ]);
+        return response()->json($product);
     }
 
     /**
@@ -90,7 +95,15 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->post();
+        $product = Products::find($id);
+        foreach ($data as $k => $datum) {
+            $product->{$k} = $datum;
+        }
+        $product->updated_at = PHANTOM_TIMESTAMP;
+        $product->save();
+
+        return response()->json($product);
     }
 
     /**
