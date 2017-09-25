@@ -27,4 +27,5 @@ class PayController extends Controller
         $url = $response->getRedirectUrl();
         return $url;
     }
+
 }
