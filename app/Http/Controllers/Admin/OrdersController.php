@@ -19,7 +19,7 @@ class OrdersController extends Controller
         $sort = [];
         $orders = Order::where($where)->orderBy($sort)->paginate();
 
-        return view('', [
+        return view('admin', [
             'result' => $orders,
             'page' => $orders->render(),
         ]);
