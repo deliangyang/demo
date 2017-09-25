@@ -183,6 +183,8 @@ return [
 
         Mews\Captcha\CaptchaServiceProvider::class,
 
+        Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
+
     ],
 
     /*
@@ -237,6 +239,8 @@ return [
         //'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
         //'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+
+        'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class,
 
     ],
 
