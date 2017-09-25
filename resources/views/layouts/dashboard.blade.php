@@ -299,12 +299,7 @@ desired effect
         </section>
 
         <!-- Main content -->
-        <section class="content">
-
-            <!-- Your Page Content Here -->
-
-        </section>
-        <!-- /.content -->
+        @yield('content')
     </div>
     <!-- /.content-wrapper -->
 
