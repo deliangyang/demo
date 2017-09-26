@@ -27,6 +27,8 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    @yield('front-static')
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -392,18 +394,18 @@ desired effect
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED JS SCRIPTS -->
+<script type="text/javascript" src="{{ asset("/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("/bower_components/AdminLTE/dist/js/app.min.js") }}"></script>
+@if(isset($show_editor))
+<script type="text/javascript" src="{{ asset("/editor/ueditor.config.js") }}"></script>
+<script type="text/javascript" src="{{ asset("/editor/ueditor.all.min.js") }}"></script>
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+</script>
+@endif
+<script type="text/javascript" src="{{ asset('/js/admin/app.js')}}"></script>
+@yield('back-static')
 
-<!-- jQuery 2.2.3 -->
-<script src="{{ asset("/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js") }}"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="{{ asset("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset("/bower_components/AdminLTE/dist/js/app.min.js") }}"></script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
 </body>
 </html>

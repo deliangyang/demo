@@ -62,7 +62,9 @@ class AdminController extends Controller
     public function create()
     {
         //
-        return view('admin.admin.create');
+        return view('admin.admin.create', [
+            'show_editor' => true,
+        ]);
     }
 
     /**
