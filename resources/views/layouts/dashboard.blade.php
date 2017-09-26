@@ -397,13 +397,6 @@ desired effect
 <script type="text/javascript" src="{{ asset("/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js") }}"></script>
 <script type="text/javascript" src="{{ asset("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}"></script>
 <script type="text/javascript" src="{{ asset("/bower_components/AdminLTE/dist/js/app.min.js") }}"></script>
-@if(isset($show_editor))
-<script type="text/javascript" src="{{ asset("/editor/ueditor.config.js") }}"></script>
-<script type="text/javascript" src="{{ asset("/editor/ueditor.all.min.js") }}"></script>
-<script type="text/javascript">
-    var ue = UE.getEditor('container');
-</script>
-@endif
 <script type="text/javascript" src="{{ asset('/js/admin/app.js')}}"></script>
 @yield('back-static')
 
