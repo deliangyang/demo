@@ -10,10 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    exit('building...');
 });
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::group(['namespace' => 'Admin', ], function() {
     Route::resource('admin/admin', 'AdminController');
@@ -26,9 +28,10 @@ Route::group(['namespace' => 'Admin', ], function() {
 
 // 微信路由
 Route::any('/wechat/serve', 'WeChatController@serve');
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/index', 'HomeController@index');
 
 Route::resource('/wx/api/orders', 'Home\\OrdersController');
 Route::resource('/wx/api/user', 'Home\\UsersController');

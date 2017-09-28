@@ -1,6 +1,9 @@
 <?php
 
-return [
+$wechat = [];
+
+/// 自己微信小程序 《每日一文》
+$wechat['phantom'] = [
     /**
      * Debug 模式，bool 值：true/false
      *
@@ -10,14 +13,14 @@ return [
     /**
      * 账号基本信息，请从微信公众平台/开放平台获取
      */
-    'app_id'  => 'your-app-id',         // AppID
-    'secret'  => 'your-app-secret',     // AppSecret
-    'token'   => 'your-token',          // Token
-    'aes_key' => '',                    // EncodingAESKey，安全模式下请一定要填写！！！
+    'app_id'  => 'wx8fb9e9c251eee4c4',         // AppID
+    'secret'  => 'c341982ebd79816e72d2d8757a52bdda',     // AppSecret
+    'token'   => '0ffac68de3825f753c740a84ea0a24b5',          // Token
+    'aes_key' => 'w5si0lNWjjS9vELdZBgkunFPcdLs4bllW7P4AEN7mzp',                    // EncodingAESKey，安全模式下请一定要填写！！！
     /**
      * 日志配置
      *
-     * level: 日志级别, 可选为：
+     * level: 日志级别, 可选为：x
      *         debug/info/notice/warning/error/critical/alert/emergency
      * permission：日志文件权限(可选)，默认为null（若为null值,monolog会取0644）
      * file：日志文件位置(绝对路径!!!)，要求可写权限
@@ -60,3 +63,12 @@ return [
         //'verify' => false, // 关掉 SSL 认证（强烈不建议！！！）
     ],
 ];
+
+// 《点早餐吧》
+$wechat['wxshop'] = [
+
+];
+
+
+
+return $wechat;

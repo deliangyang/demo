@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,18 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $tody = date('Ymd', time());
+        $content = \Cache::get($tody);
+        if (!$content) {
+            $client = new Client();
+            $response = $client->request('GET', 'https://interface.meiriyiwen.com/article/today?dev=1' );
+            $content = $response->getBody();
+        }
+        header('Content-Type: application/json');
+        $content = preg_replace('#<[^>]+>#', '\n', $content);
+        echo $content;
+        exit;
+        ///$this->middleware('auth');
     }
 
     /**
