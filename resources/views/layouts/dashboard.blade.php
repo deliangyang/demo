@@ -398,6 +398,7 @@ desired effect
 <script type="text/javascript" src="{{ asset("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}"></script>
 <script type="text/javascript" src="{{ asset("/bower_components/AdminLTE/dist/js/app.min.js") }}"></script>
 <script type="text/javascript" src="{{ asset('/js/admin/app.js')}}"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/simple-uploader/3.0.0/simple-uploader.min.js"></script>
 @yield('back-static')
 
 </body>
