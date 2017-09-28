@@ -4,6 +4,11 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Model\SysConfig
+ *
+ * @mixin \Eloquent
+ */
 class SysConfig extends Model
 {
     const CONF_TYPE_WEBSITE = 0x1;

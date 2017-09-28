@@ -14,11 +14,9 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $where = [];
-        $sort = [];
-        $products = Products::where($where)->orderBy($sort)->paginate();
-        return response()->json($products);
+    {exit;
+        //$products = (new Products())->paginate();
+        //return response()->json($products);
     }
 
     /**

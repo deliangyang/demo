@@ -16,9 +16,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $where = [];
-        $sort = [];
-        $products = Products::where($where)->orderBy($sort)->paginate();
+        $products = Products::orderBy('id')->paginate();
 
         return view('admin.products.index', [
             'result' => $products,

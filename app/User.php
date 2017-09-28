@@ -6,6 +6,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Klaravel\Ntrust\Traits\NtrustUserTrait;
 
+/**
+ * App\User
+ *
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Ntrust\Role[] $roles
+ * @mixin \Eloquent
+ */
 class User extends Authenticatable
 {
     use Notifiable, NtrustUserTrait;

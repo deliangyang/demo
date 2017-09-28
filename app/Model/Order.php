@@ -4,6 +4,11 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Model\Order
+ *
+ * @mixin \Eloquent
+ */
 class Order extends Model
 {
     //

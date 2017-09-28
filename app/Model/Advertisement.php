@@ -4,6 +4,11 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Model\Advertisement
+ *
+ * @mixin \Eloquent
+ */
 class Advertisement extends Model
 {
     //
