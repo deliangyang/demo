@@ -17,6 +17,10 @@ $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
 
+if (getenv('DEV_ENV') == 'product') {
+    $app->loadEnvironmentFrom('.env.product');
+}
+
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
