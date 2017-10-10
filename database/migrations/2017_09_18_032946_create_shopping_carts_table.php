@@ -18,6 +18,8 @@ class CreateShoppingCartsTable extends Migration
             $table->integer('product_id');
             $table->integer('uid');
             $table->integer('count');
+            $table->integer('price');
+            $table->integer('amount');
             $table->tinyInteger('status');
             $table->timestamps();
         });

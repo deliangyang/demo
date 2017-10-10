@@ -31,8 +31,9 @@ class OrdersController extends Controller
      */
     public function create(Application $app)
     {
+        $user = $app->oauth->user();
+        var_dump($user);exit;
         $payment = $app->payment;
-
         $payment->configForJSSDKPayment();
 
         return response()->json();
