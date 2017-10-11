@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('title', 40);
             $table->string('body', 100);
             $table->tinyInteger('status');
-            $table->float('amount');
+            $table->integer('amount');
             $table->string('vendor_trade_no', 32);
             $table->string('vendor', 10);
             $table->integer('count');

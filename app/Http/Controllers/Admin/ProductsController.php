@@ -69,7 +69,7 @@ class ProductsController extends Controller
         $products = Products::find($id);
 
         return view('admin.products.store', [
-            'products' => $products,
+            'ProductsTableSeeder' => $products,
         ]);
     }
 

@@ -14,9 +14,9 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {exit;
-        //$products = (new Products())->paginate();
-        //return response()->json($products);
+    {
+        $products = Products::where([])->paginate();
+        return response()->json($products);
     }
 
     /**

@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('product_name', 100);
             $table->text('product_desc');
-            $table->float('amount');
+            $table->integer('amount');
             $table->string('cover_image', 255);
             $table->integer('count');
             $table->integer('left');
@@ -32,6 +32,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('ProductsTableSeeder');
     }
 }

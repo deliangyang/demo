@@ -5,7 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Model\Products
+ * App\Model\ProductsTableSeeder
  *
  * @mixin \Eloquent
  */
