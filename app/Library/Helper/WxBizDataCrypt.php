@@ -2,7 +2,7 @@
 
 namespace App\Library\Helper;
 
-class WXBizDataCrypt
+class WxBizDataCrypt
 {
     private $appid;
     private $sessionKey;

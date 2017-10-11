@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Library\Helper\WxBizDataCrypt;
+use App\User;
 use EasyWeChat\Foundation\Application;
+use Illuminate\Http\Request;
 
 
 class WeChatController extends Controller
@@ -51,5 +54,39 @@ class WeChatController extends Controller
 
         return $response;
     }
+
+    public function xiaoChengXu(Request $request)
+    {
+        $data = $request->post();
+        $rowData = $data['rowData'] ?? 0;
+        if (empty($rowData)) {
+            throw new \Exception('授权信息不能为空', 100000);
+        }
+
+        try {
+            $sessionKey = $data['sessionKey'] ?? '';
+            $wechatConfig = \Config::get('wechat');
+            $apiKey = $wechatConfig['apiKey'];
+            $iv = $data['iv'];
+
+            $pc = new WxBizDataCrypt($apiKey, $sessionKey);
+            $errorCode = $pc->decryptData($rowData, $iv, $data);
+        } catch (\Exception $ex) {
+            throw new \Exception('授权信息不正确', 100001);
+        }
+
+        // todo: storage user info
+
+        $user = User::where(['open_id', $data->open_id]);
+        if (empty($user)) {
+            $user = User::insert([
+
+            ]);
+        }
+
+        unset($user['password']);
+        return \Response::json($user);
+    }
+
 
 }
