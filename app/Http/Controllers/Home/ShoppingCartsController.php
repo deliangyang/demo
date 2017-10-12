@@ -94,7 +94,9 @@ class ShoppingCartsController extends Controller
             ]);
         }
 
-        \Response::redirectTo('/wx/orders/pay/' . $order_no);
+        return \Response::json([
+            'url' => '/wx/orders/pay/' . $order_no,
+        ]);
     }
 
     /**
