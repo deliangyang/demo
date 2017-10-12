@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Model\Products;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProductsTest extends TestCase
 {
@@ -15,7 +15,13 @@ class ProductsTest extends TestCase
     public function testAddProduct()
     {
 
-        $this->post('/api/orders/create');
-        $this->assertTrue(true);
+        $products = factory(Products::class)->times(1)->make();
+
+        foreach ($products as $product) {
+            $response = $this->post('/admin/products', $product->toArray());
+            $response->assertStatus(200);
+        }
+
+
     }
 }

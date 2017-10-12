@@ -11,7 +11,7 @@
 |
 */
 Route::get('/', function() {
-    exit('building...');
+    echo('building...');
 });
 //Route::get('/', function () {
 //    return view('welcome');
@@ -36,3 +36,5 @@ Route::get('/index', 'HomeController@index');
 Route::resource('/wx/api/orders', 'Home\\OrdersController');
 Route::resource('/wx/api/user', 'Home\\UsersController');
 Route::resource('/wx/api/products', 'Home\\ProductsController');
+
+Route::post('/upload', 'UploadController@upload');

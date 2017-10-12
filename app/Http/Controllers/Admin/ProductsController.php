@@ -44,6 +44,10 @@ class ProductsController extends Controller
     {
         $postData = $request->post();
 
+        if (empty($postData)) {
+            throw new \Exception('提交数据不能为空');
+        }
+
         $product = new Products();
         $product->product_name = $postData['product_name'];
         $product->product_desc = $postData['product_desc'];
