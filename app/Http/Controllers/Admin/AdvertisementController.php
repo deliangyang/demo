@@ -19,7 +19,7 @@ class AdvertisementController extends Controller
         $sort = [];
         $advertise = Advertisement::where($where)->orderBy($sort)->paginate();
 
-        return view('admin.x', [
+        return view('admin.admin.advertisement.list', [
             'result' => $advertise,
             'page' => $advertise->render(),
         ]);
