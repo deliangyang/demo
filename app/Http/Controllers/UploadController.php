@@ -20,7 +20,7 @@ class UploadController extends Controller
                 $type = $file->getClientMimeType();     // image/jpeg
 
                 // 上传文件
-                $filename = date('Y-m-d/His') . '-' . uniqid() . '.' . $ext;
+                $filename = date('Y/m/d/') . date('His') . md5( uniqid() . rand(1000, 9999)) . '.' . $ext;
                 // 使用我们新建的uploads本地存储空间（目录）
 
                 $storage = $request->test->storeAs('krc', $filename, 'uploads');
@@ -31,7 +31,7 @@ class UploadController extends Controller
                 ];
             }
         }
-        
+
         return \Response::json($output);
     }
 }
