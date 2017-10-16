@@ -9,8 +9,9 @@ class UploadController extends Controller
 
     public function upload(Request $request)
     {
+        $output = [];
         if ($request->isMethod('POST')) {
-            $file = $request->file('file');
+            $file = $request->file('test');
             if ($file->isValid()) {
 
                 $originalName = $file->getClientOriginalName(); // 文件原名
@@ -21,8 +22,16 @@ class UploadController extends Controller
                 // 上传文件
                 $filename = date('Y-m-d/His') . '-' . uniqid() . '.' . $ext;
                 // 使用我们新建的uploads本地存储空间（目录）
-                $bool = \Storage::disk('uploads')->put($filename, file_get_contents($realPath));
+
+                $storage = $request->test->storeAs('krc', $filename, 'uploads');
+                $output = [
+                    'path' => '/uploads/' . $storage,
+                    'original_name' => $originalName,
+                    'type' => $type,
+                ];
             }
         }
+        
+        return \Response::json($output);
     }
 }
