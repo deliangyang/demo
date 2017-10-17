@@ -186,6 +186,7 @@ return [
         Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
 
         Overtrue\LaravelUEditor\UEditorServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
     ],
 

@@ -1,0 +1,5 @@
+var Admin = {
+    upload: function() {
+
+    }
+}
